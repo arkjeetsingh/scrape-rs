@@ -1,0 +1,35 @@
+[package]
+name = "scrape-core"
+description = "High-performance HTML parsing library core"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+keywords.workspace = true
+categories.workspace = true
+
+[dependencies]
+html5ever.workspace = true
+markup5ever.workspace = true
+markup5ever_rcdom.workspace = true
+memchr.workspace = true
+# TODO: add selectors when actually implementing CSS selector support
+# selectors.workspace = true
+thiserror.workspace = true
+
+[dev-dependencies]
+criterion.workspace = true
+
+[lints]
+workspace = true
+
+[features]
+default = []
+simd = []
+parallel = []
+
+[[bench]]
+name = "parse"
+harness = false

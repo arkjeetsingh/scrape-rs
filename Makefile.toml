@@ -1,0 +1,142 @@
+[config]
+default_to_workspace = false
+
+# ============================================================================
+# Rust verification
+# ============================================================================
+
+[tasks.fmt]
+description = "Format Rust code with nightly rustfmt"
+command = "cargo"
+args = ["+nightly", "fmt"]
+
+[tasks.fmt-check]
+description = "Check Rust formatting"
+command = "cargo"
+args = ["+nightly", "fmt", "--check"]
+
+[tasks.clippy]
+description = "Run clippy lints"
+command = "cargo"
+args = ["clippy", "--workspace", "--all-targets", "--all-features", "--", "-D", "warnings"]
+
+[tasks.test]
+description = "Run tests with nextest"
+command = "cargo"
+args = ["nextest", "run", "--workspace"]
+
+[tasks.deny]
+description = "Run cargo-deny checks"
+command = "cargo"
+args = ["deny", "check"]
+
+[tasks.verify-rust]
+description = "Full Rust verification: fmt + clippy + test + deny"
+dependencies = ["fmt-check", "clippy", "test", "deny"]
+
+# ============================================================================
+# Python verification
+# ============================================================================
+
+[tasks.python-build]
+description = "Build Python bindings with maturin"
+cwd = "crates/scrape-py"
+command = "uv"
+args = ["run", "maturin", "develop"]
+
+[tasks.python-lint]
+description = "Lint Python code with ruff"
+cwd = "crates/scrape-py"
+script = [
+    "uv run ruff check .",
+    "uv run ruff format --check ."
+]
+
+[tasks.python-test]
+description = "Run Python tests"
+cwd = "crates/scrape-py"
+command = "uv"
+args = ["run", "pytest"]
+dependencies = ["python-build"]
+
+[tasks.verify-python]
+description = "Full Python verification: lint + build + test"
+dependencies = ["python-lint", "python-test"]
+
+# ============================================================================
+# Node.js verification
+# ============================================================================
+
+[tasks.node-build]
+description = "Build Node.js bindings"
+cwd = "crates/scrape-node"
+command = "pnpm"
+args = ["run", "build"]
+
+[tasks.node-lint]
+description = "Lint Node.js/TypeScript code with biome"
+cwd = "crates/scrape-node"
+command = "pnpm"
+args = ["exec", "biome", "check", "."]
+
+[tasks.node-test]
+description = "Run Node.js tests"
+cwd = "crates/scrape-node"
+command = "pnpm"
+args = ["test"]
+dependencies = ["node-build"]
+
+[tasks.verify-node]
+description = "Full Node.js verification: lint + build + test"
+dependencies = ["node-lint", "node-test"]
+
+# ============================================================================
+# WASM verification
+# ============================================================================
+
+[tasks.wasm-build]
+description = "Build WASM bindings"
+command = "wasm-pack"
+args = ["build", "crates/scrape-wasm", "--target", "web", "--release"]
+
+[tasks.wasm-lint]
+description = "Lint WASM JavaScript with biome"
+cwd = "crates/scrape-wasm"
+command = "pnpm"
+args = ["exec", "biome", "check", "."]
+
+[tasks.wasm-test]
+description = "Run WASM tests"
+command = "wasm-pack"
+args = ["test", "crates/scrape-wasm", "--headless", "--firefox"]
+
+[tasks.verify-wasm]
+description = "Full WASM verification: lint + build + test"
+dependencies = ["wasm-lint", "wasm-build", "wasm-test"]
+
+# ============================================================================
+# Full verification
+# ============================================================================
+
+[tasks.verify-all]
+description = "Full verification of all components"
+dependencies = ["verify-rust", "verify-python", "verify-node", "verify-wasm"]
+
+# ============================================================================
+# Development helpers
+# ============================================================================
+
+[tasks.dev]
+description = "Watch for changes and run checks"
+command = "cargo"
+args = ["watch", "-x", "check", "-x", "test"]
+
+[tasks.bench]
+description = "Run benchmarks"
+command = "cargo"
+args = ["bench"]
+
+[tasks.fuzz]
+description = "Run fuzzing"
+command = "cargo"
+args = ["+nightly", "fuzz", "run", "parse_fuzzer"]
