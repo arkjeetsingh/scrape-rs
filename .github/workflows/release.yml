@@ -435,9 +435,10 @@ jobs:
       - name: Publish platform packages
         working-directory: crates/scrape-node
         run: |
+          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
           for platform in darwin-arm64 darwin-x64 linux-arm64-gnu linux-x64-gnu linux-x64-musl win32-x64-msvc; do
             if [[ -f "npm/$platform/package.json" ]] && ls npm/$platform/*.node 1>/dev/null 2>&1; then
-              echo "Publishing @scrape-rs/$platform"
+              echo "Publishing @fast-scrape/node-$platform"
               cd npm/$platform
               npm publish --access public --provenance || true
               cd ../..
