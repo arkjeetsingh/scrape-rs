@@ -1,7 +1,7 @@
 {
   "name": "fast-scrape-darwin-arm64",
   "version": "0.1.0",
-  "description": "scrape-rs native binding for macOS ARM64 (Apple Silicon)",
+  "description": "fast-scrape native binding for macOS ARM64 (Apple Silicon)",
   "os": [
     "darwin"
   ],

@@ -1,7 +1,7 @@
 {
   "name": "fast-scrape-darwin-x64",
   "version": "0.1.0",
-  "description": "scrape-rs native binding for macOS x64 (Intel)",
+  "description": "fast-scrape native binding for macOS x64 (Intel)",
   "os": [
     "darwin"
   ],

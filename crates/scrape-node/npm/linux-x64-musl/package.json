@@ -1,7 +1,7 @@
 {
   "name": "fast-scrape-linux-x64-musl",
   "version": "0.1.0",
-  "description": "scrape-rs native binding for Linux x64 (musl)",
+  "description": "fast-scrape native binding for Linux x64 (musl)",
   "os": [
     "linux"
   ],

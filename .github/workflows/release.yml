@@ -374,7 +374,7 @@ jobs:
     timeout-minutes: 15
     environment:
       name: npm
-      url: https://www.npmjs.com/package/@scrape-rs/wasm
+      url: https://www.npmjs.com/package/@fast-scrape/wasm
     permissions:
       contents: read
       id-token: write
@@ -400,7 +400,10 @@ jobs:
           tool: wasm-pack
 
       - name: Build WASM
-        run: wasm-pack build crates/scrape-wasm --target web --release --scope scrape-rs
+        run: wasm-pack build crates/scrape-wasm --target web --release --scope fast-scrape
+
+      - name: Fix package name
+        run: sed -i 's/"name": "@fast-scrape\/scrape-wasm"/"name": "@fast-scrape\/wasm"/' crates/scrape-wasm/pkg/package.json
 
       - name: Verify bundle size
         run: |
@@ -476,7 +479,7 @@ jobs:
 
           ### WASM
           \`\`\`bash
-          npm install @scrape-rs/wasm@$VERSION
+          npm install @fast-scrape/wasm@$VERSION
           \`\`\`
 
           ## Published to
@@ -484,7 +487,7 @@ jobs:
           - [crates.io](https://crates.io/crates/scrape-core)
           - [PyPI](https://pypi.org/project/fast-scrape)
           - [npm](https://www.npmjs.com/package/fast-scrape)
-          - [npm (WASM)](https://www.npmjs.com/package/@scrape-rs/wasm)
+          - [npm (WASM)](https://www.npmjs.com/package/@fast-scrape/wasm)
           EOF
 
       - name: Create Release
