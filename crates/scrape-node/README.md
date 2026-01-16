@@ -3,7 +3,6 @@
 [![npm](https://img.shields.io/npm/v/@fast-scrape/node)](https://www.npmjs.com/package/@fast-scrape/node)
 [![Node.js](https://img.shields.io/node/v/@fast-scrape/node)](https://www.npmjs.com/package/@fast-scrape/node)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Ready-blue)](https://www.typescriptlang.org/)
-[![codecov](https://codecov.io/gh/bug-ops/scrape-rs/graph/badge.svg?token=6MQTONGT95&flag=node)](https://codecov.io/gh/bug-ops/scrape-rs)
 [![License](https://img.shields.io/npm/l/@fast-scrape/node)](../../LICENSE-MIT)
 
 **10-50x faster** HTML parsing for Node.js. Rust-powered, Cheerio-compatible API.

@@ -2,7 +2,6 @@
 
 [![PyPI](https://img.shields.io/pypi/v/fast-scrape)](https://pypi.org/project/fast-scrape)
 [![Python](https://img.shields.io/pypi/pyversions/fast-scrape)](https://pypi.org/project/fast-scrape)
-[![codecov](https://codecov.io/gh/bug-ops/scrape-rs/graph/badge.svg?token=6MQTONGT95&flag=python)](https://codecov.io/gh/bug-ops/scrape-rs)
 [![License](https://img.shields.io/pypi/l/fast-scrape)](../../LICENSE-MIT)
 
 **10-50x faster** HTML parsing for Python. Rust-powered, BeautifulSoup-compatible API.
