@@ -1,5 +1,5 @@
 {
-  "name": "fast-scrape-linux-arm64-musl",
+  "name": "@fast-scrape/node-linux-arm64-musl",
   "version": "0.1.0",
   "description": "fast-scrape native binding for Linux ARM64 (musl)",
   "os": [

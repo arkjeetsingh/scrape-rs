@@ -1,5 +1,5 @@
 {
-  "name": "fast-scrape-linux-x64-gnu",
+  "name": "@fast-scrape/node-linux-x64-gnu",
   "version": "0.1.0",
   "description": "fast-scrape native binding for Linux x64 (glibc)",
   "os": [

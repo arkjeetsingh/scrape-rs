@@ -1,5 +1,5 @@
 {
-  "name": "fast-scrape",
+  "name": "@fast-scrape/node",
   "version": "0.1.0",
   "description": "High-performance HTML parsing library for Node.js",
   "main": "index.js",
@@ -65,12 +65,12 @@
     "@napi-rs/cli": "^3.5.1"
   },
   "optionalDependencies": {
-    "fast-scrape-darwin-x64": "0.1.0",
-    "fast-scrape-darwin-arm64": "0.1.0",
-    "fast-scrape-linux-x64-gnu": "0.1.0",
-    "fast-scrape-linux-x64-musl": "0.1.0",
-    "fast-scrape-linux-arm64-gnu": "0.1.0",
-    "fast-scrape-linux-arm64-musl": "0.1.0",
-    "fast-scrape-win32-x64-msvc": "0.1.0"
+    "@fast-scrape/node-darwin-x64": "0.1.0",
+    "@fast-scrape/node-darwin-arm64": "0.1.0",
+    "@fast-scrape/node-linux-x64-gnu": "0.1.0",
+    "@fast-scrape/node-linux-x64-musl": "0.1.0",
+    "@fast-scrape/node-linux-arm64-gnu": "0.1.0",
+    "@fast-scrape/node-linux-arm64-musl": "0.1.0",
+    "@fast-scrape/node-win32-x64-msvc": "0.1.0"
   }
 }
