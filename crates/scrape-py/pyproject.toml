@@ -3,7 +3,7 @@ requires = ["maturin>=1.11,<2.0"]
 build-backend = "maturin"
 
 [project]
-name = "scrape_rs"
+name = "fast-scrape"
 description = "High-performance HTML parsing library for Python"
 readme = "README.md"
 license = { text = "MIT OR Apache-2.0" }
@@ -28,10 +28,10 @@ keywords = ["html", "parser", "scraping", "css-selectors", "dom"]
 dynamic = ["version"]
 
 [project.urls]
-Homepage = "https://github.com/example/scrape-rs"
-Documentation = "https://docs.rs/scrape-rs"
-Repository = "https://github.com/example/scrape-rs"
-Issues = "https://github.com/example/scrape-rs/issues"
+Homepage = "https://github.com/bug-ops/scrape-rs"
+Documentation = "https://github.com/bug-ops/scrape-rs"
+Repository = "https://github.com/bug-ops/scrape-rs"
+Issues = "https://github.com/bug-ops/scrape-rs/issues"
 
 [tool.maturin]
 features = ["pyo3/extension-module"]

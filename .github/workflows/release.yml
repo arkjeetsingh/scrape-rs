@@ -185,7 +185,7 @@ jobs:
     timeout-minutes: 10
     environment:
       name: pypi
-      url: https://pypi.org/project/scrape-rs/
+      url: https://pypi.org/project/fast-scrape/
     permissions:
       id-token: write
     steps:
@@ -466,7 +466,7 @@ jobs:
 
           ### Python
           \`\`\`bash
-          pip install scrape-rs==$VERSION
+          pip install fast-scrape==$VERSION
           \`\`\`
 
           ### Node.js
@@ -482,7 +482,7 @@ jobs:
           ## Published to
 
           - [crates.io](https://crates.io/crates/scrape-core)
-          - [PyPI](https://pypi.org/project/scrape-rs)
+          - [PyPI](https://pypi.org/project/fast-scrape)
           - [npm](https://www.npmjs.com/package/scrape-rs)
           - [npm (WASM)](https://www.npmjs.com/package/@scrape-rs/wasm)
           EOF
