@@ -367,7 +367,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: crates/scrape-node
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       - name: Build
         working-directory: crates/scrape-node
@@ -426,7 +426,7 @@ jobs:
 
       - name: Install dependencies
         working-directory: crates/scrape-node
-        run: pnpm install
+        run: pnpm install --no-frozen-lockfile
 
       - name: Update npm for provenance
         run: npm install -g npm@latest
