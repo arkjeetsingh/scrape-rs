@@ -6,7 +6,7 @@ use html5ever::{ParseOpts, parse_document, tendril::TendrilSink};
 use markup5ever_rcdom::{Handle, NodeData, RcDom};
 
 use super::{ParseConfig, ParseError, ParseResult, Parser, private::Sealed};
-use crate::dom::{Document, NodeId};
+use crate::dom::{Document, DocumentIndex, NodeId};
 
 /// HTML5 spec-compliant parser using html5ever.
 ///
@@ -30,6 +30,22 @@ impl Sealed for Html5everParser {}
 
 impl Parser for Html5everParser {
     fn parse_with_config(&self, html: &str, config: &ParseConfig) -> ParseResult<Document> {
+        self.parse_with_config_and_capacity(html, config, 256)
+    }
+}
+
+impl Html5everParser {
+    /// Parses HTML with the given configuration and pre-allocated capacity.
+    ///
+    /// # Errors
+    ///
+    /// Returns [`ParseError`] if parsing fails.
+    pub fn parse_with_config_and_capacity(
+        &self,
+        html: &str,
+        config: &ParseConfig,
+        capacity: usize,
+    ) -> ParseResult<Document> {
         if html.trim().is_empty() {
             return Err(ParseError::EmptyInput);
         }
@@ -39,17 +55,28 @@ impl Parser for Html5everParser {
             .read_from(&mut html.as_bytes())
             .map_err(|e| ParseError::InternalError(e.to_string()))?;
 
-        convert_rcdom_to_document(&dom, config)
+        convert_rcdom_to_document_with_capacity(&dom, config, capacity)
     }
 }
 
 /// Converts an html5ever `RcDom` to our Document representation.
 fn convert_rcdom_to_document(dom: &RcDom, config: &ParseConfig) -> ParseResult<Document> {
-    let mut document = Document::new();
+    convert_rcdom_to_document_with_capacity(dom, config, 256)
+}
+
+/// Converts an html5ever `RcDom` to our Document representation with pre-allocated capacity.
+fn convert_rcdom_to_document_with_capacity(
+    dom: &RcDom,
+    config: &ParseConfig,
+    capacity: usize,
+) -> ParseResult<Document> {
+    let mut document = Document::with_capacity(capacity);
     let mut depth = 0;
+    let mut index = DocumentIndex::new();
 
-    convert_node(&dom.document, &mut document, None, &mut depth, config)?;
+    convert_node(&dom.document, &mut document, None, &mut depth, config, &mut index)?;
 
+    document.set_index(index);
     Ok(document)
 }
 
@@ -60,6 +87,7 @@ fn convert_node(
     parent: Option<NodeId>,
     depth: &mut usize,
     config: &ParseConfig,
+    index: &mut DocumentIndex,
 ) -> ParseResult<Option<NodeId>> {
     if *depth > config.max_depth {
         return Err(ParseError::MaxDepthExceeded { max_depth: config.max_depth });
@@ -70,7 +98,7 @@ fn convert_node(
         NodeData::Document => {
             // Process children of document node without creating a node
             for child in handle.children.borrow().iter() {
-                if let Some(child_id) = convert_node(child, document, None, depth, config)?
+                if let Some(child_id) = convert_node(child, document, None, depth, config, index)?
                     && document.root().is_none()
                 {
                     document.set_root(child_id);
@@ -95,7 +123,14 @@ fn convert_node(
                 attributes.insert(key, attr.value.to_string());
             }
 
-            let node_id = document.create_element(tag_name, attributes);
+            let node_id = document.create_element(tag_name, attributes.clone());
+
+            if let Some(id_attr) = attributes.get("id") {
+                index.register_id(id_attr.clone(), node_id);
+            }
+            if let Some(class_attr) = attributes.get("class") {
+                index.register_classes(class_attr, node_id);
+            }
 
             if let Some(parent_id) = parent {
                 document.append_child(parent_id, node_id);
@@ -105,7 +140,7 @@ fn convert_node(
 
             // Process children
             for child in handle.children.borrow().iter() {
-                convert_node(child, document, Some(node_id), depth, config)?;
+                convert_node(child, document, Some(node_id), depth, config, index)?;
             }
 
             Some(node_id)

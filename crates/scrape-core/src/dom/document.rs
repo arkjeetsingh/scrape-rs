@@ -4,6 +4,7 @@ use std::collections::HashMap;
 
 use super::{
     arena::Arena,
+    index::DocumentIndex,
     node::{Node, NodeId},
 };
 
@@ -32,6 +33,7 @@ use super::{
 pub struct Document {
     arena: Arena<Node>,
     root: Option<NodeId>,
+    index: Option<DocumentIndex>,
 }
 
 impl Default for Document {
@@ -55,7 +57,7 @@ impl Document {
     /// Use this when you know the approximate number of nodes to avoid reallocations.
     #[must_use]
     pub fn with_capacity(capacity: usize) -> Self {
-        Self { arena: Arena::with_capacity(capacity), root: None }
+        Self { arena: Arena::with_capacity(capacity), root: None, index: None }
     }
 
     /// Returns the root node ID, if any.
@@ -70,12 +72,14 @@ impl Document {
     }
 
     /// Returns a reference to the node with the given ID.
+    #[inline]
     #[must_use]
     pub fn get(&self, id: NodeId) -> Option<&Node> {
         self.arena.get(id.index())
     }
 
     /// Returns a mutable reference to the node with the given ID.
+    #[inline]
     #[must_use]
     pub fn get_mut(&mut self, id: NodeId) -> Option<&mut Node> {
         self.arena.get_mut(id.index())
@@ -143,6 +147,17 @@ impl Document {
         self.arena.len()
     }
 
+    /// Returns the document index, if built.
+    #[must_use]
+    pub fn index(&self) -> Option<&DocumentIndex> {
+        self.index.as_ref()
+    }
+
+    /// Sets the document index.
+    pub fn set_index(&mut self, index: DocumentIndex) {
+        self.index = Some(index);
+    }
+
     /// Returns `true` if the document has no nodes.
     #[must_use]
     pub fn is_empty(&self) -> bool {
@@ -157,30 +172,35 @@ impl Document {
     // ==================== Navigation APIs ====================
 
     /// Returns the parent of a node.
+    #[inline]
     #[must_use]
     pub fn parent(&self, id: NodeId) -> Option<NodeId> {
         self.arena.get(id.index()).and_then(|n| n.parent)
     }
 
     /// Returns the first child of a node.
+    #[inline]
     #[must_use]
     pub fn first_child(&self, id: NodeId) -> Option<NodeId> {
         self.arena.get(id.index()).and_then(|n| n.first_child)
     }
 
     /// Returns the last child of a node.
+    #[inline]
     #[must_use]
     pub fn last_child(&self, id: NodeId) -> Option<NodeId> {
         self.arena.get(id.index()).and_then(|n| n.last_child)
     }
 
     /// Returns the next sibling of a node.
+    #[inline]
     #[must_use]
     pub fn next_sibling(&self, id: NodeId) -> Option<NodeId> {
         self.arena.get(id.index()).and_then(|n| n.next_sibling)
     }
 
     /// Returns the previous sibling of a node.
+    #[inline]
     #[must_use]
     pub fn prev_sibling(&self, id: NodeId) -> Option<NodeId> {
         self.arena.get(id.index()).and_then(|n| n.prev_sibling)
